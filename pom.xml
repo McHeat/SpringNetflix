@@ -18,12 +18,31 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
-        <spring-boot.version>1.5.0.RELEASE</spring-boot.version>
+        <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
+        <spring-cloud.version>Finchley.RC1</spring-cloud.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <repositories>
-        <repository>
+       <!-- <repository>
             <id>maven-ali</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
             <releases>
@@ -34,7 +53,7 @@
                 <updatePolicy>always</updatePolicy>
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
-        </repository>
+        </repository>-->
         <repository>
             <id>haiercash</id>
             <url>http://10.164.194.139:8081/nexus/content/repositories/public/</url>
