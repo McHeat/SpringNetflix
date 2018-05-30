@@ -4,13 +4,35 @@ server:
 spring:
   application:
     name: eureka-client
+    version: 1.0.0
+    profile: dev
+
+# actuator配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: beans, env
+      base-path: /
+
+# actuator的端点/info展示内容
+info:
+  name: ${spring.application.name}
+  version: ${spring.application.version}
+  profile: ${spring.application.profile}
 
 eureka:
   client:
     healthcheck.enabled: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://10.164.22.172:8761/eureka
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}(${spring.cloud.client.hostname})
+#    instanceId: ${spring.application.name}@${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}(${spring.cloud.client.hostname})
+    instanceId: ${spring.application.name}@${spring.application.instance_id:${server.port}}(${spring.cloud.client.hostname})
     preferIpAddress: true
     leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 30
+
+
+
