@@ -24,16 +24,17 @@ info:
 
 eureka:
   client:
-    enabled: false
     healthcheck.enabled: true
     serviceUrl:
-      defaultZone: http://10.164.22.151:8761/eureka
+      defaultZone: http://10.164.22.152:8761/eureka
   instance:
 #    instanceId: ${spring.application.name}@${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}(${spring.cloud.client.hostname})
-    instanceId: ${spring.application.name}@${spring.application.instance_id:${server.port}}(${spring.cloud.client.hostname})
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}}
     preferIpAddress: true
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 30
+    healthCheckUrlPath: /health
+    statusPageUrlPath: /info
 
 
 
