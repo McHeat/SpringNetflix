@@ -1,0 +1,7 @@
+group = 'com.mcheat.spring.cloud'
+version = '1.0.0'
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.boot:spring-boot-starter-web")
+}

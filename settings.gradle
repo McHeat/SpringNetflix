@@ -1,0 +1,6 @@
+rootProject.name = "SpringNetflix"
+
+include "eureka_server"
+include "eureka_client"
+
+

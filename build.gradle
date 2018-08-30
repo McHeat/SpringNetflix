@@ -1,0 +1,86 @@
+ext.projectIds = ['group': 'com.mcheat.spring.cloud', 'version': '1.0.0']
+group = projectIds.group
+version = projectIds.version
+
+
+configurations {
+
+}
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.13.RELEASE'
+        springCloudVersion = 'Dalston.SR5'
+    }
+    repositories {
+        mavenLocal()
+        maven {
+            url "http://10.164.194.139:8081/nexus/content/repositories/public/"
+        }
+//        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+/*        maven {
+            url "http://10.164.194.139:8081/nexus/content/repositories/public/"
+        }*/
+        mavenCentral()
+    }
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: "spring-boot"
+
+    sourceCompatibility = 1.8
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
