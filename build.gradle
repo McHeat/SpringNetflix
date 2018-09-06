@@ -14,10 +14,7 @@ buildscript {
     }
     repositories {
         mavenLocal()
-        maven {
-            url "http://10.164.194.139:8081/nexus/content/repositories/public/"
-        }
-//        mavenCentral()
+        mavenCentral()
     }
 
     dependencies {
@@ -28,9 +25,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-/*        maven {
-            url "http://10.164.194.139:8081/nexus/content/repositories/public/"
-        }*/
         mavenCentral()
     }
 
@@ -40,6 +34,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: "spring-boot"
+    apply plugin: "io.spring.dependency-management"
 
     sourceCompatibility = 1.8
 
