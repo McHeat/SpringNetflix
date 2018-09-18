@@ -3,4 +3,5 @@ rootProject.name = "SpringNetflix"
 include "eureka_server"
 include "eureka_client"
 include "ribbon_consumer"
+include "cloud_config"
 
