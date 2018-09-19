@@ -8,3 +8,6 @@ spring:
           uri: https://github.com/McHeat/CloudConfig
 server:
   port: 1201
+
+encrypt:
+  key: 'MCHEAT'
